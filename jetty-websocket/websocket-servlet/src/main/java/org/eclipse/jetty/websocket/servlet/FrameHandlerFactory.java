@@ -27,17 +27,15 @@ import org.eclipse.jetty.websocket.core.FrameHandler;
  * This is used by Servlet based APIs only.
  * </p>
  */
-public interface WebSocketServletFrameHandlerFactory
+public interface FrameHandlerFactory
 {
-    String ATTR_HANDLERS = "org.eclipse.jetty.websocket.servlet.FrameHandlerFactories";
-
     /**
      * Attempt to create a FrameHandler from the provided websocketPojo.
      *
      * @param websocketPojo   the websocket pojo to work with
      * @param upgradeRequest  the Upgrade Handshake Request used to create the FrameHandler
      * @param upgradeResponse the Upgrade Handshake Response used to create the FrameHandler
-     * @return the API specific FrameHandler, or null if this implementation is unable to create the FrameHandler (allowing another {@link WebSocketServletFrameHandlerFactory} to try)
+     * @return the API specific FrameHandler, or null if this implementation is unable to create the FrameHandler (allowing another {@link FrameHandlerFactory} to try)
      */
     FrameHandler newFrameHandler(Object websocketPojo, ServletUpgradeRequest upgradeRequest, ServletUpgradeResponse upgradeResponse);
 }
